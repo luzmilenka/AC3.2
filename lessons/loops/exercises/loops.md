@@ -1,16 +1,54 @@
 ## A) For each prompt below, write a for loop that prints out the specified information.
 
-1) All the numbers from 1 to 150 inclusive
+1) All the numbers from 1 to 150 inclusive 
+
+
+for i in 1...150 {
+print(i)
+}
+
 
 2) All the numbers from 142 to 159 exclusive
 
+for i in 142..<159 {
+print(i)
+}
+
+
 3) Only the even numbers from 15 to 80 inclusive
+
+for i in 15...80 {
+if i % 2 == 0 {
+print(i)
+}
+}
 
 4) Only the odd numbers from 19 to 51 inclusive
 
+for i in 19...51 {
+if i % 3 == 0 {
+print(i)
+}
+}
+
+
 5) All the numbers that end in a 5 from 1 to 100 exclusive
 
+for i in 1..<100 {
+if i % 10 == 5 {
+print(i)
+}
+}
+
+
 6) All the numbers that end in a 7 from 1 to 40 inclusive
+
+for i in 1...40 {
+if i % 10 == 7 {
+print(i)
+}
+}
+
 
 
 ## B) Given a range of numbers from 20 to 150 print out all the numbers that follows these conditions
@@ -24,6 +62,22 @@
 4) Print out numbers contain 31, 35, 40 to 60.
 
 
+for i in 20...151 {
+if i % 3 == 0 {
+print(i)
+}
+else if i % 2 == 0 && i % 3 == 0 {
+print (i)
+}
+else if 1 % 10 == 4 {
+print (i)
+}
+else if i % 10 == 31 || i % 10 == 35 || (i >= 40 && i <= 60) {
+print(i)
+}
+
+}
+
 ## C) While loop (NO Xcode)
 ```
 var i = 5
@@ -31,26 +85,41 @@ while (i > 3) {
   i += 1
 }
 ```
-1) How many times does this while loop execute?
+1) How many times does this while loop execute? Infinitive
 
 2) How do you stop the loop when i reaches 9?
+
+var i = 4
+while (i > 3) {
+   if i == 9 {
+      break
+   }
+   i += 1
+}
+print(i)
+
+
+
 
 3) How would you fix the while loop so that it only execute 1,000 times.
 
 4) Once the loop can run 1,000 times, print out ONLY the event number.
 
+
+
+
 ```
 var i = 1
 while i <= 10 {
-    print("i = \(i)")
-    i+=
+print("i = \(i)")
+i+=
 }
 ```
 ```
 var i = 1
 do {
-   print("i = \(i)")
-   i+=
+print("i = \(i)")
+i+=
 }while i <= 10
 ```
 5) What's the difference between these two while loop?
