@@ -3,32 +3,81 @@
 #### S1.
 Without using string interpolation, print out a string that combines myGreeting and myName.
 
-```
+
+``` swift
 let myGreeting = "Hello, "
 let myName = "Ben"
+
+print(myGreeting, myName)
 ```
 #### S2.
 Write code that prints out myArray as a single string separated by spaces.
 
 ```swift
+
 let myArray = ["Hi", "there,", "how","is","it","going?"]
+
+for i in 0..<myArray.count{
+
+    print("\(myArray[i])",terminator: " ")
+
+}
+
 ```
 #### S3.
 Write code that prints out all the numbers from 1 to 10 as a single string.  (Hint: the String() function can convert an int to a string)
 
+``` swift
+var myString = [String]()
+
+for i in 1...10 {
+    myString.append(String(i))
+}
+
+print(myString)
+```
 #### S4.
 Write code that prints out all the even numbers from 5 to 51 as a single string.
+
+``` swift
+for i in 5...51 {
+    if i % 2 == 0 {
+        print(i, terminator: " ")
+    }
+}
+```
 
 #### S5.
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
 
+``` swift
+for i in 1...60 {
+    if i % 10 == 4 {
+        print(i, terminator: " ")
+    }
+}
+```
+
 #### S6.
 Print each character in the string ```Hello world!```
+
+``` swift
+
+let myGreeting = "Hello World"
+for character in myGreeting.characters {
+    print(character, terminator: "")
+
+}
+
+```
+
 
 #### S7.
 Using '.characters' and loop, print the last character in the string below
 ```swift
 let myStringSeven = "Hello world!"
+
+
 ```
 
 #### S8.
