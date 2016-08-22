@@ -11,7 +11,7 @@ Provide the following constants/variable names with the most appropriate type an
 4. var _latitude_: double
 5. var _longitude_: double
 6. var _isRainingCurrently_: bool
-7. let _completeAddress_: [int, string]
+7. let _completeAddress_: (Int, String)
 8. let _π_: float
 
 #### Question 2.
@@ -24,6 +24,8 @@ Convert the following decimal numbers to Binary:
 #### Question 3.
 Using nested loops, print the numbers from 0 to 100, then back to 0.
 
+```swift
+
 for i in 0...100{
     print(i)
     if i == 100{
@@ -33,9 +35,13 @@ for i in 0...100{
     }
 }
 
+```
+
 #### Question 4.
 While ```i``` is greater than 1, print only all positive even numbers and break 
 out of the loop when you've reached 220.
+
+```swift 
 
 var i = 2
 
@@ -50,8 +56,12 @@ while (i > 1 ){
 
 }
 
+```
+
 #### Question 5.
 * Using any kind of loop, print the sum of all numbers between 0 to 50.
+
+```swift 
 var sum = 0
 
 for i in 0...50{
@@ -59,8 +69,11 @@ for i in 0...50{
 }
 print(sum)
 
+```
+
 * Using a while loop, print all the odd numbers from 0 to 100.
 
+```swift
 var i = 0
 
 while (i <= 100){
@@ -69,17 +82,24 @@ while (i <= 100){
     }   
     i += 1
 }
+```
 
 * Using a ```for case``` loop, print all the multiples of 10 from 50 to 500.
 
+
+``` swift 
 for case let i in 50...500 where i % 10 == 0 {
     print(i)
 }
+```
 
 
 #### Question 6.
 Consider the code below. Loop through the ```professionals``` array and using a switch statement:
 * Print out the professionals with _lastName_ "Smith".
+
+```swift
+
 for person in professionals {
     switch person.lastName {
         case "Smith":
@@ -88,7 +108,11 @@ for person in professionals {
             break
     }
 }
+```
+
 * Print out all the developers.
+
+```swift
 for person in professionals {
     switch person.job {
         case "developer":
@@ -97,8 +121,10 @@ for person in professionals {
             break
     }
 }
+```
 
 * Print out all the non-developers.
+```swift
 for person in professionals {
     switch person.job {
         case "developer":
@@ -107,9 +133,11 @@ for person in professionals {
         print(person)
     }
 }
+```
 
 * Print out the professionals in their 20s.
 
+```swift
 for person in professionals {
     switch person.age {
         case 20...30:
@@ -118,8 +146,11 @@ for person in professionals {
         break
     }
 }
+```
 * Print out the professionals in their 30s.
 
+
+```swift
 for person in professionals {
     switch person.age {
         case 30...40:
@@ -128,6 +159,7 @@ for person in professionals {
         break
     }
 }
+```
 
 ```swift
 let sarah = (firstName: "Sarah", lastName: "Palardo", job: "teacher", age: 32)
@@ -158,13 +190,13 @@ Given the arrays below, use nested loops to print out every possible card in the
 ```swift
 let denominations = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 let suits = ["♠️", "♣️", "♥️", "♦️"]
-```
 
 for s in suits {
     for d in denominations {
         print(d, s)
     }
 }
+```
 
 
 #### Question 8.
@@ -185,6 +217,7 @@ for i in (1...5).reverse() {
 * For all multiples of 5, print out "Buzz"  instead of the number.
 * For all multiples of 3 and 5, print out "FizzBuzz" instead of the number.
 
+```swift
 for i in 1...100 {
     if (i % 3 == 0 && i % 5 == 0) {
         print("FizzBuzz")
@@ -199,6 +232,7 @@ for i in 1...100 {
         print(i)
     }
 }
+```
 
 #### Question 10.
 Write code that will print out the first 10 [Fibonacci](http://www.codeforwin.in/2015/06/fibonacci-series-in-c-program.html) numbers:
@@ -206,6 +240,7 @@ Write code that will print out the first 10 [Fibonacci](http://www.codeforwin.in
 ```
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
 ```
+```swift
 var a = 0
 var b = 1
 
@@ -215,3 +250,4 @@ for _ in 0..<10 {
     a = b
     b = temp + b
 }
+```
