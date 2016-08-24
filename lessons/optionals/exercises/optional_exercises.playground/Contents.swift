@@ -196,11 +196,9 @@ let myIntString = "35"
 //Write code that adds 15 to myIntString, then prints the sum.  Use the Int() function which returns an Integer?
 
 
-var inString = Int(myString)
+var intString = Int(myIntString)
 intString! = intString! + 15
 print(intString)
-
-
 
 
 
