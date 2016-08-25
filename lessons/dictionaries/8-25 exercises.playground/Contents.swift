@@ -7,9 +7,20 @@ import UIKit
 
 //a) Create an instance of a dictionary called citiesDict that maps 3 countries to their capital cities
 
+var citiesDict: [String : String] = ["India" : "New Delhi", "US" : "Washington D.C", "Germany" : "Berlin"]
+
 //b) Add two more countries to your dictionary
 
+citiesDict["Bolivia"] = "Sucre"
+citiesDict["Turkey"] = "Ankara"
+
+
 //c) Translate at least 3 of the capital names into another language
+
+citiesDict.updateValue("Yeni Delhi", forKey: "India")
+citiesDict.updateValue("Vasington", forKey: "US")
+citiesDict.updateValue("Sukre", forKey: "Bolivia")
+
 
 //2)
 
@@ -17,15 +28,50 @@ var someDict:[String:Int] = ["One": 1, "Two": 4, "Three": 9, "Four": 16, "Five":
 
 //a) using someDict, add together the values associated with "Three" and "Five" and print the result.
 
+var sum = someDict["Three"]! + someDict["Five"]!
+print(sum)
+
+
+
 //b) Add values to the dictionary for the keys "Six" and "Seven"
+
+someDict["Six"] = 36
+someDict["Seven"] = 49
+print(someDict)
 
 //c) Make a key caled "productUpToSeven" and set its value equal to the product of all the values
 
+someDict["productOfSeven"] = 14400
+
 //d) Make a key called "sumUpToSix" and set its value equal to the sum of the keys "One", "Two", "Three", "Four", "Five" and "Six"
 
+var sumUpToSix = 0
+
+for (key,value) in someDict {
+    if key != "seven" && key != "productUpToSeven" {
+        sumUpToSix += value
+    }
+}
+print(sumUpToSix)
+
+
+
+someDict["sumUpToSix"] = 55
+
 //e) Remove the new keys made for parts c and d
+someDict.removeValueForKey("productOfSeven")
+someDict.removeValueForKey("sumUpToSix")
+
+print(someDict)
 
 //f) Add 2 to every value inside of someDict
+
+for (key, value) in someDict {
+    if let myValue = someDict[key] {
+    someDict[key] = myValue + 2
+    }
+}
+print(someDict)
 
 
 //3)  (from http://www.themobilemontage.com/wp-content/uploads/2015/05/hw1.pdf)
@@ -81,11 +127,26 @@ var code = [
 
 var message = "hello world"
 
+if let h = code["g"], e = code["d"], l = code["k"], o = code["n"], w = code["v"], r = code["q"], d = code["c"] {
+    print("\(h)\(e)\(l)\(l)\(o)", "\(w)\(o)\(r)\(l)\(d)")
+}
+
 
 //4b)
 //You are also given a encodedMessage which contains only lowercase letters and spaces. Use the code dictionary to decode the message and print it.
 
 var encodedMessage = "uijt nfttbhf jt ibse up sfbe"
+
+for i in encodedMessage.characters {
+    if String(i) == " " {
+        print(" ", separator: "", terminator:"")
+    }
+    for (k, v) in code {
+        if String(i) == v {
+            print(k, terminator: "")
+        }
+    }
+}
 
 
 //5)
@@ -114,8 +175,22 @@ var people: [[String:String]] = [
     ]
 ]
 
+var firstName = [String]()
+
+for dict in people {
+    if let first = dict["firstName"] {
+        firstName.append(first)
+    }
+}
+print(firstName)
+
 //5b) Create an array of strings called fullNames that contains the values for “firstName” and “lastName” from the dictionary separated by a space.
 
+var fullName = [String]()
+
+for dict in people {
+    if 
+}
 //6)
 //You are given an array of dictionaries. Each dictionary in the array describes the score of a person. Find the person with the best score and print his full name.
 
