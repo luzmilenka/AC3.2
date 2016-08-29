@@ -114,24 +114,86 @@ if let name = aMovie["name"] as? String, year = aMovie["year"] as? Int, cast = a
 // WARM UPS
 // 1. Print the name of the first movie.
 
+if let name1 = movies[0]["name"] {
+    print(name1)
+}
+
+
 // 2. Print a list of all movie names, preferably on one line.
+
+for m in movies {
+    if let name = m["name"] {
+    print(name, terminator: ", ")
+    }
+}
+
 
 // 3. Print a list of all movie years and names as follows:
 // 2015: Minions
 // 2001: Shrek
-// .
-// .
-// .
+
+for m in movies {
+    if let name = m["name"] as? String, year = m["year"] as? Int {
+        print("\(year): \(name)")
+    }
+}
+
+
 
 // 4. Iterate over all movies. Inside the loop use switch on genre. Print each title
 // and add an appropriate emoji to represent its genre
+
+
+for movie in movies {
+    if let genre = movie["genre"] as? String, name = movie["name"] as? String {
+        switch genre {
+            case "action":
+                print("\(name): 🔫")
+            case "drama":
+                print("\(name): 😰")
+            case "animation":
+                print("\(name): 🐠")
+        default:
+            print("No genre found")
+        }
+    }
+}
+
+
 
 // 5. In code, not by literal initialization, create a new dictionary called moviesByName of type
 // [String:[String:Any]]. Copy the elements of movies, adding each to moviesByName
 // with the name as key. Sort by name.
 
+var moviesByName = [String:[String:Any]] ();
+
+for movie in movies {
+    
+    if let movieName = movie["name"] as? String{
+        moviesByName[movieName] = movie
+    }
+}
+//print(moviesByName)
+
 // 6. Do the same thing as in (5) for year and genre, creating a new dictionary for each one.
 // What happens, and why? How might you change your approach?
+// The value of each genre key gets replace by another movie from the same genre, so we ended up with the last movie iterated per genre.
+// The solution is to make a list of Movies to be the value of the Genre key. So we can catch all the movies under the same genre and append it to the list.
+
+var moviesByGenre = [String:[[String:Any]]] ();
+
+for movie in movies {
+    
+    if let movieGenre = movie["genre"] as? String {
+        if (moviesByGenre[movieGenre]) == nil {
+            moviesByGenre[movieGenre] = [[String:Any]] ()
+        }
+
+        moviesByGenre[movieGenre]?.append(movie)
+    }
+}
+print(moviesByGenre)
+
 
 // THE PROJECT
 // Iterate over all movies and print a formatted blurb about each one. Use this out put of the

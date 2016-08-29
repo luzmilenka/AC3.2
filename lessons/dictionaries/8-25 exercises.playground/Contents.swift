@@ -184,13 +184,19 @@ for dict in people {
 }
 print(firstName)
 
+
 //5b) Create an array of strings called fullNames that contains the values for “firstName” and “lastName” from the dictionary separated by a space.
 
-var fullName = [String]()
+//var fullName= [String, String]()
+//
+//for (k, v) in people {
+//    if let k = dict] {
+//        fullName.append(fullName)
+//    }
+//}
+//print(firstName, lastName)
+//
 
-for dict in people {
-    if 
-}
 //6)
 //You are given an array of dictionaries. Each dictionary in the array describes the score of a person. Find the person with the best score and print his full name.
 
@@ -222,6 +228,9 @@ var peopleWithScores: [[String: String]] = [
         "score": "16"
     ]
 ]
+
+var bestScore = 0
+
 
 /*6b) Print out the dictionary above in the following format:
 full name - score
