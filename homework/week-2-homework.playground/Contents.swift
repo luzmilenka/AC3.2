@@ -4,7 +4,7 @@ import UIKit
 
 // movies is an Array of Dictionaries
 // each element of movies is a Dictionary with the keys
-// 'name','year', 'genre', 'cast' and 'description'
+// "name","year", "genre", "cast" and "description"
 var movies: [[String:Any]] = [
     [
         "name": "Minions",
@@ -178,7 +178,7 @@ for movie in movies {
 // 6. Do the same thing as in (5) for year and genre, creating a new dictionary for each one.
 // What happens, and why? How might you change your approach?
 // The value of each genre key gets replace by another movie from the same genre, so we ended up with the last movie iterated per genre.
-// The solution is to make a list of Movies to be the value of the Genre key. So we can catch all the movies under the same genre and append it to the list.
+// The solution is to make a list of Movies to be the value of the Genre key. So we can catch all the movies under the same genre and append it to the list. Same thing with the years.
 
 var moviesByGenre = [String:[[String:Any]]] ();
 
@@ -192,7 +192,23 @@ for movie in movies {
         moviesByGenre[movieGenre]?.append(movie)
     }
 }
-print(moviesByGenre)
+//print(moviesByGenre)
+
+//var moviesByYear = [String:[[Int:Any]]] ();
+//
+//for movie in movies {
+//    
+//    if let movieYear = movie["year"] as? Int {
+//        if (moviesByYear[movieYear]) == nil {
+//            moviesByYear[movieYear] = [[Int:Any]] ()
+//        }
+//        
+//        moviesByYear]?.append(movie)
+//    }
+//}
+//print(moviesByYear)
+
+
 
 
 // THE PROJECT
@@ -206,5 +222,43 @@ print(moviesByGenre)
 // Note how it should generate "an animation" in contrast to "a drama"
 // Similarly notice the "and" before the last member of the cast listed.
 // Get it to work any which way you can but try your best to follow these guidelines
-//   * Don't use forced unwrapping
+//   * Don"t use forced unwrapping
 //   * Use multiple bindings in one "if let" (no pyramid of doom)
+
+for movie in movies{
+    if let name = movie["name"] as? String, year = movie["year"] as? Int, genre = movie["genre"] as? String,
+        stars = movie["cast"] as? [String]{
+        var genreStatement : String = ""
+        var starsStatement : String = ""
+        
+        if ["a","e","i","o","u"].contains(genre[genre.startIndex]) {
+            genreStatement = "an \(genre) "
+        } else {
+            genreStatement = "a \(genre) "
+        }
+        
+        for star in stars {
+            
+            if star == stars.first {
+                starsStatement+=""
+                
+            } else if star == stars.last {
+                starsStatement+=" and "
+            } else {
+                starsStatement+=", "
+            }
+            
+            starsStatement+=star
+            
+            
+        }
+        
+        print("\(name) came out in \(year). It was \(genreStatement)staring \(starsStatement)")
+        
+        if let pres = presidentsByYear[year] {
+            print("\(pres) was president that year.")
+        }
+    }
+    
+}
+
