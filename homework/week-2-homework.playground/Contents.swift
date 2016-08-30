@@ -192,7 +192,8 @@ for movie in movies {
         moviesByGenre[movieGenre]?.append(movie)
     }
 }
-//print(moviesByGenre)
+
+print(moviesByGenre)
 
 //var moviesByYear = [String:[[Int:Any]]] ();
 //
@@ -227,7 +228,7 @@ for movie in movies {
 
 for movie in movies{
     if let name = movie["name"] as? String, year = movie["year"] as? Int, genre = movie["genre"] as? String,
-        stars = movie["cast"] as? [String]{
+    stars = movie["cast"] as?  [String] {
         var genreStatement : String = ""
         var starsStatement : String = ""
         
