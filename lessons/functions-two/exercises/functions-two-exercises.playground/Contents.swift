@@ -239,13 +239,27 @@ print(vowelsinMyString(phrase, v: vowels))
 //Explanation:
 //2, 4, 6, 9 are unique in the array.  Every other number is not unique.
 
-let arr = [24, 15, 12, 24, 15]
+let inputArray = [24, 15, 12, 24, 15]
 
-func uniqueNumber(array: [Int]) -> Int {
-    for i in array {
-        if i
+func findUniqueInts(arr: [Int]) -> Int {
+    var uniqueInts = [Int]()
+    var check = [Int](count: findlargestNum(arr)+1, repeatedValue: 0)
+    for i in arr {
+        check[i] += 1
     }
+    for j in 0..<check.count {
+        if check[j] == 1 {
+            uniqueInts.append(j)
+        }
+    }
+    //print("Check is \(check)")
+    print("uniqueInts are \(uniqueInts)")
+    return uniqueInts.count
 }
+
+findUniqueInts(inputArray)
+
+
 
 
 //7) Write a function that converts a binary number into decimal.  The binary number will be given as an array of Ints.
@@ -255,6 +269,7 @@ func uniqueNumber(array: [Int]) -> Int {
 
 //Sample output:
 //93
+
 
 //8) Copy the movie dictionary from homework two and add another [String] to each movie.
 //   Name it "locations" and add some dummy data. Use the re-factored nested function
