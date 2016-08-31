@@ -150,7 +150,7 @@ var array7B = {(arrOfArr: [[Int]])-> [[Int]] in
     return newArrs
 }
 
-print(array7B(arrayOfArrays))
+array7B(arrayOfArrays)
 
 
 
@@ -193,11 +193,22 @@ let letterValues = [
 
 var codeString = "aldfjaekwjnfaekjnf"
 
+let codeStringAsArr = Array(codeString.characters)
 
-var newCode = {
-    
-    
+codeStringAsArr.dynamicType
+
+codeStringAsArr.sort { (a: Character, b: Character) -> Bool in
+    let aValue = letterValues[String(a)]
+    let bValue = letterValues[String(b)]
+    return aValue < bValue
 }
+
+
+
+
+
+    
+    
 
 
 
