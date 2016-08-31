@@ -270,6 +270,24 @@ findUniqueInts(inputArray)
 //Sample output:
 //93
 
+let binaryArray = [1,0,1,1,1,0,1]
+
+func parseBinary(binary: [Int]) -> Int? {
+    var result: Int = 0
+    
+    for digit in binary {
+        switch(digit) {
+        case 0: result = result * 2
+        case 1: result = result * 2 + 1
+        default: return nil
+        }
+    }
+    return result
+}
+
+parseBinary(binaryArray)
+
+
 
 //8) Copy the movie dictionary from homework two and add another [String] to each movie.
 //   Name it "locations" and add some dummy data. Use the re-factored nested function
